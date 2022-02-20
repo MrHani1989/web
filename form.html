@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registeration</title>
+    <link rel="stylesheet" href="CustomInput.css?rand=<?= md5(time()) ?>">
+
+    <style>
+        /*
+        Type of css selector :
+        The body and each HTML element has a block class , id head or foot
+        will have to margin 15% from left and right
+        */
+        body, .block, #head, #foot {
+            /*
+            margin attribute takes either 4 arguments or 2
+            example :
+            margin: 1px 2px 3px 4px;
+            means       shift from top 1 px
+                        shift from top 2 px
+                        shift from top 3 px
+                        shift from top 4 px
+            margin: 1px 2px;
+            means       shift from top & bottom 1 px
+                        shift from right & left 2 px
+            it can take any measurement unit absolute or relative like:
+            # absolute examples:
+            px  means pixel
+            %   means percentage of the screen size
+            cm  means centimeters
+            in  means inches
+            pt  means points
+            # relative examples:
+            em	means relative to the font-size of the element (2em means 2 times the size of the current font)
+            ex  means relative to the x-height of the current font (rarely used)
+            ...etc more info can be founded here :
+            https://www.w3schools.com/cssref/css_units.asp
+            */
+            margin: 0 15%;
+        }
+
+        /*
+        css block class selector
+        */
+        .block {
+            /* margin from top more 5% /*/
+            margin-top: 5%;
+            /* set border 1px with solid line and a color #c5c5c5 */
+            border: 1px solid #c5c5c5;
+            /* padding from the border to inside 5% from up, right, bottom, and down */
+            padding: 5% 5%;
+            /** set position relative **/
+            position: relative;
+        }
+
+        /*
+        css title class selector
+         */
+        .title {
+            /** set absolute relative **/
+            position: absolute;
+            /** set from top 0 px **/
+            top: 0;
+            /** set from top 0 px **/
+            left: 0;
+            /** set black background **/
+            background: black;
+            /** set color white **/
+            color: white;
+        }
+
+        /*
+        css submit button class selector
+         */
+        .submit {
+            /* set the border */
+            border: 0.5px solid #666666;
+            /* padding inside the button so it can be more bigger */
+            padding: 15px 32px;
+            /* go to the right */
+            float: right;
+        }
+
+        /*
+        css submit button hover class selector
+        means if the mouse point over the button
+        the border will change
+         */
+        .submit:hover {
+            /* set the border */
+            border: 1px solid #666666;
+        }
+
+        /* create row */
+        .row {
+            display: table;
+            width: 100%; /*Optional*/
+            table-layout: fixed; /*Optional*/
+            border-spacing: 10px; /*Optional*/
+        }
+
+        /* create column */
+        .column {
+            /* let the content of div start from top */
+            vertical-align: top;
+            display: table-cell;
+        }
+
+    </style>
+</head>
+<body>
+<form method="post" action="form.php">
+    <div id="head">
+        <h1>Register a new course:</h1>
+        <small>please, make sure to fill in all field that has *</small>
+    </div>
+    <div class="block">
+        <div class="content">
+            <div class="field">
+                <input type="text" name="full_name" id="full_name" placeholder="Hani Althubaiti">
+                <label for="full_name">Name</label>
+            </div>
+            <div class="field">
+                <input type="number" name="id" id="id" placeholder="4424110">
+                <label for="id">ID</label>
+            </div>
+            <div class="field">
+                <input type="number" name="mobile" id="mobile" placeholder="966595596599">
+                <label for="mobile">Mobile</label>
+            </div>
+            <div class="field">
+                <input type="email" name="email" id="email" placeholder="hani@company.com">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="title">General Information</div>
+    </div>
+    <div class="block">
+        <div class="content">
+            <div class="row">
+                <div class="column">
+                    <div class="field">
+                        <select name="course" id="course">
+                            <optgroup label="Computer Science">
+                                <option value="cs1">Database</option>
+                                <option value="cs2">Cyber Security</option>
+                            </optgroup>
+                            <optgroup label="General">
+                                <option value="g1">Quran</option>
+                                <option value="g2">Islamic Calutre</option>
+                            </optgroup>
+                            <optgroup label="Internalship">
+                                <option disabled value="i1">Microsoft C# Dev</option>
+                                <option value="i2">Microsoft ASP.net Dev</option>
+                                <option value="i2">Elm SA Java Dev</option>
+                            </optgroup>
+                        </select>
+                        <label for="course">What is the course?</label>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <span><input type="radio" value="yes" name="did_repeat"> - Yes</span>
+                        <span><input type="radio" value="no" name="did_repeat"> - No</span>
+                        <label for="repeat">Have you repeated the course?</label>
+                    </div>
+                </div>
+            </div>
+            <div class="title">Course Information</div>
+        </div>
+    </div>
+    <br>
+    <div id="foot">
+        <button class="submit" type="submit">Register</button>
+    </div>
+
+</form>
+</body>
+</html>
