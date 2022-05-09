@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My JS Code</title>
+    <!--    first way at the head document-->
+    <style>
+
+    </style>
+    <!--    second way embedding remote file-->
+    <link rel="stylesheet" href="...">
+
+    <!--  JS  First Way -->
+    <!--    <script>-->
+    <!--        function showValue() {-->
+    <!--            alert(document.getElementById('text').value)-->
+    <!--        }-->
+
+    <!--    </script>-->
+
+    <!--    JS Second way-->
+    <script src="customJS.js" type="text/javascript">
+    </script>
+
+</head>
+<!--    writing css in style attribute -->
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Milk</td>
+        <td>10</td>
+        <td><input type="checkbox" name="item[]" onchange="updateCart(this)" value="10"></td>
+    </tr>
+    <tr>
+        <td>Rice</td>
+        <td>20</td>
+        <td><input on type="checkbox" name="item[]" onchange="updateCart(this)" value="20"></td>
+    </tr>
+    </tbody>
+    <h3>Total:<span id="total">0$</span></h3>
+</table>
+</body>
+</html>
+<script>
+    price = 0;
+
+    function updateCart(e) {
+        price = price + parseInt(e.value)
+        console.log(e.checked)
+        document.getElementById('total').innerHTML = '$' + price
+    }
+</script>
